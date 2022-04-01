@@ -12,26 +12,27 @@ export default function HeroPost({
   slug,
 }) {
   return (
-    <section>
-      <div className="mb-8 md:mb-16">
-        <CoverImage title={title} url={coverImage} slug={slug} />
-      </div>
-      <div className="md:grid md:grid-cols-2 md:gap-x-16 lg:gap-x-8 mb-20 md:mb-28">
-        <div>
-          <h3 className="mb-4 text-4xl lg:text-6xl leading-tight">
-            <Link href={`/posts/${slug}`}>
-              <a className="hover:underline">{title}</a>
-            </Link>
-          </h3>
-          <div className="mb-4 md:mb-0 text-lg">
-            <Date dateString={date} />
+    <Link href={`/posts/${slug}`}>
+      <a> 
+        <div className="mb-8 md:mb-2 relative">
+          
+          <CoverImage title={title} url={coverImage} slug={slug} />
+          
+          <div className="relative p-3 lg:left-10 md:-top-40  bg-white md:max-w-xl  sm:max-w-md sm:top-0 sm:left-auto sm:right-auto">
+            <h3 className="mb-4 text-3xl lg:text-5xl leading-tight">
+              
+              <a className="hover:underline font-bold tracking-tighter leading-tight">{title}
+                <div className="mb-4 mt-4 md:mb-0 text-md text-sm tracking-tighter leading-tight">
+                    <Date dateString={date} />
+                </div>
+              </a>
+            </h3>
+            <p className="text-xl leading-relaxed mb-4">{excerpt}</p>
+            
           </div>
-        </div>
-        <div>
-          <p className="text-lg leading-relaxed mb-4">{excerpt}</p>
-          <Avatar name={author.name} picture={author.content.picture} />
-        </div>
-      </div>
-    </section>
+
+        </div>  
+      </a>
+    </Link>
   )
 }
